@@ -29,8 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
-    
     AppDelegate* days = [[UIApplication sharedApplication] delegate];
 
     UILabel *label =[[UILabel alloc] init];
@@ -56,13 +54,46 @@
     [self.view addSubview:view];
   
     
-    
     //テキストビューの作成
     _textView =[self makeTextView:CGRectMake(50, 100, 200, 200)text:@""];
     [_textView setDelegate:self];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
+    NSString *dir   = [paths objectAtIndex:0];
+    //DBファイルがあるかどうか確認
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:[dir stringByAppendingPathComponent:@"file.db"]])
+    {
+        //なければ新規作成
+        FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
+        NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,photo BLOB);";
+        [db open]; //DB開く
+        [db executeUpdate:sql]; //SQL実行
+        [db close]; //DB閉じる
+    }
+
+    
+    FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
+    NSString *sel=@"select * from diary where day = ?;";
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:sel,days.str];
+    if([results next]) {
+        //while( [results next] ){
+        NSString *testname = [results stringForColumn:@"kiji"];
+            [_textView setText:testname];
+            NSLog(@"%@",testname);
+            
+    //}
+    }
+
+    
+    
+    
     [self.view addSubview:_textView];
     
-    
+    [db close];
     
    /* UIButton* button=[self makeButton:CGRectMake(115, 320, 90, 40) text:@"日記を投稿"];
     [self.view addSubview:button];*/
@@ -84,7 +115,7 @@
     UITextView* textView=[[UITextView alloc] init];
     [textView setEditable:YES];
     [textView setFrame:rect];
-    [textView setText:text];
+    //[textView setText:text];
     [textView setKeyboardAppearance:UIKeyboardAppearanceDefault];
     [textView setKeyboardType:UIKeyboardTypeDefault];
     [textView setReturnKeyType:UIReturnKeyDefault];
@@ -109,7 +140,7 @@
 - (void)alertView:(UIAlertView*)alertView didDismissWithButtonIndex:(NSInteger)index{
     
     if (index == 1) {
-        UIViewController *next = [[ViewController alloc] init];
+        UIViewController *next = [[Database alloc] init];
         [self.navigationController pushViewController:next animated:NO];
     }
 }

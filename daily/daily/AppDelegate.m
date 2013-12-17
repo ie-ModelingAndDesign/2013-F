@@ -11,6 +11,8 @@
 @implementation AppDelegate
 @synthesize str;
 @synthesize moji;
+@synthesize read;
+@synthesize readday;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  

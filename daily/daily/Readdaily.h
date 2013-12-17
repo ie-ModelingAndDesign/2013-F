@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "diarydata.h"
+#import "AppDelegate.h"
+#import "Dataildiary.h"
 @interface Readdaily : UIViewController <UITableViewDelegate, UITableViewDataSource>
+{
+    NSMutableArray* array;
+}
+
 
 @end

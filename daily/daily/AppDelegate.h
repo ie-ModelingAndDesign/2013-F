@@ -18,6 +18,11 @@
 
 @property (nonatomic,retain)NSString* moji;
 
+@property (nonatomic,retain)NSString* read;
+
+@property (nonatomic,retain)NSString* readday;
+
+
 
 @property (strong, nonatomic) UIWindow *window;
 
