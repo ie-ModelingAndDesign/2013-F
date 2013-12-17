@@ -19,9 +19,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
+
+#define MAX_LENGTH 1000
 
 - (void)viewDidLoad
 {
@@ -29,9 +32,10 @@
    
     
     AppDelegate* days = [[UIApplication sharedApplication] delegate];
+
     UILabel *label =[[UILabel alloc] init];
-    label.text = days.str;
-    label.frame = CGRectMake(50, 50, 200,50);
+    [label setText:[NSString stringWithFormat:@"%@の日記",days.str]];
+    label.frame = CGRectMake(50, 70, 200,25);
     [self.view addSubview:label];
     
     //navigationcontrollerの表示
@@ -39,57 +43,104 @@
     
     //ナビゲーションタイトルを付ける
     self.navigationItem.title = days.str;
+    //ナビゲーションボタン
+    UIBarButtonItem* button=[[UIBarButtonItem alloc] initWithTitle:@"投稿" style:UIBarButtonItemStyleBordered target:self action:@selector(clickButton:)];
+    self.navigationItem.rightBarButtonItem=button;
+    
+    //NSLog(@"%@",days.str);
     
     
-    NSLog(@"%@",days.str);
-    
-    // UITextFieldのインスタンスを生成
-    CGRect rect = CGRectMake(50, 100, 200, 25);
-    UITextField *textField = [[UITextField alloc]initWithFrame:rect];
-    
-    // 枠線のスタイルを設定
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    
-    // テキストを左寄せにする
-   // textField.textAlignment = UITextAlignmentLeft;
-    
-    // ラベルのテキストのフォントを設定
-    textField.font = [UIFont fontWithName:@"Helvetica" size:14];
-    
-    // プレースホルダ
-    textField.placeholder = @"日記を投稿して下さい";
+    //viewの作成
+    UIView* view =[[UIView alloc] initWithFrame:CGRectMake(49, 99, 202, 202)];
+    [view setBackgroundColor:[UIColor darkGrayColor]];
+    [self.view addSubview:view];
+  
     
     
-    // キーボードの種類を設定
-    textField.keyboardType = UIKeyboardTypeDefault;
+    //テキストビューの作成
+    _textView =[self makeTextView:CGRectMake(50, 100, 200, 200)text:@""];
+    [_textView setDelegate:self];
+    [self.view addSubview:_textView];
     
-    // リターンキーの種類を設定
-    textField.returnKeyType = UIReturnKeyDone;
     
-    // 編集中にテキスト消去ボタンを表示
-    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
-    // デリゲートを設定
-    textField.delegate = self;
+   /* UIButton* button=[self makeButton:CGRectMake(115, 320, 90, 40) text:@"日記を投稿"];
+    [self.view addSubview:button];*/
     
-    // UITextFieldのインスタンスをビューに追加
-    [self.view addSubview:textField];
+    
+}
+
+- (UIButton*)makeButton:(CGRect)rect text:(NSString*)text{
+    UIButton* button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:rect];
+    [button setTitle:text forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(clickButton:)
+     forControlEvents: UIControlEventTouchUpInside];
+    return button;
+}
+
+
+- (UITextView*)makeTextView:(CGRect)rect text:(NSString*)text{
+    UITextView* textView=[[UITextView alloc] init];
+    [textView setEditable:YES];
+    [textView setFrame:rect];
+    [textView setText:text];
+    [textView setKeyboardAppearance:UIKeyboardAppearanceDefault];
+    [textView setKeyboardType:UIKeyboardTypeDefault];
+    [textView setReturnKeyType:UIReturnKeyDefault];
+    return textView;
+
+}
+
+
+- (void)showAlert:(NSString*)title text:(NSString*)text{
+    UIAlertView* alert=[[UIAlertView alloc]initWithTitle:title message:text delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [alert show];
+}
+
+- (void)showAlertNostring:(NSString*)title text:(NSString*)text{
+    UIAlertView* alert=[[UIAlertView alloc]initWithTitle:title message:text delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+
+
+//アラートクリック時に呼ばれる
+- (void)alertView:(UIAlertView*)alertView didDismissWithButtonIndex:(NSInteger)index{
+    
+    if (index == 1) {
+        UIViewController *next = [[ViewController alloc] init];
+        [self.navigationController pushViewController:next animated:NO];
+    }
+}
+
+	// Do any additional setup after loading the view.
+-(void)write:(UITextView*)textfield{
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    //[textfield resignFirstResponder];
+
+    appDelegate.moji = textfield.text;
+    NSLog(@"%@",appDelegate.moji);
     
 }
 
 
 
+- (void)clickButton:(UIButton*)sender{
+    AppDelegate *days = [[UIApplication sharedApplication] delegate];
+    //[textfield resignFirstResponder];
     
-	// Do any additional setup after loading the view.
+    if ([_textView hasText] == NO) {
+        NSLog(@"nostring");
+        [self showAlertNostring:@"" text:@"文字が入力されていない"];
+    }
 
-
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    // キーボードを隠す
-    [self.view endEditing:YES];
-    
-    return YES;
+    else{
+    days.moji = _textView.text;
+    NSLog(@"%@",days.moji);
+    [self showAlert:@"" text:[NSString stringWithFormat:@"%@の日記を投稿しますか？",days.str]];
+    }
 }
 
 

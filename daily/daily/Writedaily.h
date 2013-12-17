@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Selectdays.h"
-@interface Writedaily : UIViewController <UITextFieldDelegate>
+#import "AppDelegate.h"
+#import "ViewController.h"
+
+@interface Writedaily : UIViewController <UITextViewDelegate>{
+    UITextView* _textView;
+}//<UITextFieldDelegate>
 
 @end

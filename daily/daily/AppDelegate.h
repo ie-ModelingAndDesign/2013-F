@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Selectdays.h"
+#import "Readdaily.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
     NSString* str;
 }
 
 //選択した日付
 @property (nonatomic,retain)NSString* str;
+
+@property (nonatomic,retain)NSString* moji;
 
 
 @property (strong, nonatomic) UIWindow *window;

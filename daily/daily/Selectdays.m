@@ -38,10 +38,8 @@
 {
     [super viewDidLoad];
     
-    UIButton *button;
     UIDatePicker *datePicker= [[UIDatePicker alloc]init];
-    button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    
+
     
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
@@ -69,31 +67,20 @@
     // UIDatePickerのインスタンスをビューに追加
     [self.view addSubview:datePicker];
     
-    //ボタンの設定
-    
-    [button setTitle:@"日記作成" forState:UIControlStateNormal];
-    
-    // キャプションに合わせてサイズを自動調整
-    [button sizeToFit];
-    
-    // ボタンを画面中心に移動
-    button.center = self.view.center;
-    
-    // 画面変更時にボタンの位置を自動調整
-    button.autoresizingMask = UIViewAutoresizingFlexibleWidth |
-    UIViewAutoresizingFlexibleHeight |
-    UIViewAutoresizingFlexibleLeftMargin |
-    UIViewAutoresizingFlexibleRightMargin |
-    UIViewAutoresizingFlexibleTopMargin |
-    UIViewAutoresizingFlexibleBottomMargin;
-    
-    // ボタン押下時のイベントを登録
-    [button addTarget:self action:@selector(buttonDidPush:)
-     forControlEvents: UIControlEventTouchUpInside];
-    
+    UIButton* button=[self makeButton:CGRectMake(115, 220, 90, 40) text:@"日記を作成"];
     [self.view addSubview:button];
 }
-    
+
+- (UIButton*)makeButton:(CGRect)rect text:(NSString*)text{
+    UIButton* button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:rect];
+    [button setTitle:text forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(clickButton:)
+     forControlEvents: UIControlEventTouchUpInside];
+    return button;
+}
+
+
 - (void)hoge:(id)sender
 {
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -107,29 +94,17 @@
     //NSLog(@"%@", str);
 }
 
-- (void)buttonDidPush:(UIDatePicker*)dp
-{
-    //NSDateFormatter *df = [[NSDateFormatter alloc]init];
-    //df.dateFormat = @"yyyy/MM/dd";
-   // AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-    //NSLog(@"%@",appDelegate.str);
-    /*UILabel *label =[[UILabel alloc] init];
-    label.text = appDelegate.str;
-    label.frame = CGRectMake(10, 200, 200,50);
-    [self.view addSubview:label];
-    */
+- (void)clickButton:(UIButton*)sender{
     
 
+    UIBarButtonItem *back_button = [[UIBarButtonItem alloc] initWithTitle:@"日付" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = back_button;
     
-     //UIViewController *next = [[Writedaily alloc] init];
-     //[self.view addSubview:next];
     //ページ移動
     UIViewController *next = [[Writedaily alloc] init];
    // next.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
    [self.navigationController pushViewController:next animated:NO];
 }
-
 
 
 

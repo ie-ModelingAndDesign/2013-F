@@ -10,6 +10,7 @@
 
 @implementation AppDelegate
 @synthesize str;
+@synthesize moji;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
@@ -20,12 +21,8 @@
     
     // UITabBarControllerに管理させるUIViewControllerを作成します．
     // 今回は２つのUIViewControllerを管理してみましょう
-    UIViewController *controller1 = [[UIViewController alloc] initWithNibName:nil bundle:nil];
-    controller1.view.backgroundColor = [UIColor redColor];
-    
-    // それぞれ分かりやすいように背景に色をつけてみましょう
+    UIViewController *controller1 = [[Readdaily alloc] initWithNibName:nil bundle:nil];
     UIViewController *controller2 = [[Selectdays alloc] initWithNibName:nil bundle:nil];
-    //[controller2.view setBackgroundColor:[UIColor greenColor]];
     
     // UITabBarControllerに設定するための前準備です
     NSArray *controllers = [NSArray arrayWithObjects:[[UINavigationController alloc] initWithRootViewController:controller1], [[UINavigationController alloc] initWithRootViewController:controller2], nil];
