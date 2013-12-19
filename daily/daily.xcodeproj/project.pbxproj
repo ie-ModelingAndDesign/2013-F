@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A40CEAA8185302A500D25FF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40CEAA7185302A500D25FF6 /* Foundation.framework */; };
+		A40CEAAA185302A500D25FF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40CEAA9185302A500D25FF6 /* CoreGraphics.framework */; };
+		A40CEAAC185302A500D25FF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40CEAAB185302A500D25FF6 /* UIKit.framework */; };
+		A40CEAB2185302A500D25FF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A40CEAB0185302A500D25FF6 /* InfoPlist.strings */; };
+		A40CEAB4185302A500D25FF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A40CEAB3185302A500D25FF6 /* main.m */; };
+		A40CEAB8185302A500D25FF6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A40CEAB7185302A500D25FF6 /* AppDelegate.m */; };
+		A40CEABE185302A500D25FF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A40CEABD185302A500D25FF6 /* ViewController.m */; };
+		A40CEAC0185302A500D25FF6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A40CEABF185302A500D25FF6 /* Images.xcassets */; };
+		A40CEAC7185302A500D25FF6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40CEAC6185302A500D25FF6 /* XCTest.framework */; };
+		A40CEAC8185302A500D25FF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40CEAA7185302A500D25FF6 /* Foundation.framework */; };
+		A40CEAC9185302A500D25FF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40CEAAB185302A500D25FF6 /* UIKit.framework */; };
+		A40CEAD1185302A500D25FF6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A40CEACF185302A500D25FF6 /* InfoPlist.strings */; };
+		A40CEAD3185302A500D25FF6 /* dailyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A40CEAD2185302A500D25FF6 /* dailyTests.m */; };
+		A40CEADE185302D100D25FF6 /* Selectdays.m in Sources */ = {isa = PBXBuildFile; fileRef = A40CEADD185302D100D25FF6 /* Selectdays.m */; };
+		A40CEAE11853944E00D25FF6 /* Writedaily.m in Sources */ = {isa = PBXBuildFile; fileRef = A40CEAE01853944E00D25FF6 /* Writedaily.m */; };
+		A470D2F4185EE11000D99A9E /* Readdaily.m in Sources */ = {isa = PBXBuildFile; fileRef = A470D2F3185EE11000D99A9E /* Readdaily.m */; };
+		A4C31469186044D800B6FF4C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C31468186044D800B6FF4C /* libsqlite3.0.dylib */; };
+		A4C314761860778C00B6FF4C /* Database.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C314751860778C00B6FF4C /* Database.m */; };
+		A4C31488186095E000B6FF4C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C3147F186095E000B6FF4C /* FMDatabase.m */; };
+		A4C31489186095E000B6FF4C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C31481186095E000B6FF4C /* FMDatabaseAdditions.m */; };
+		A4C3148A186095E000B6FF4C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C31483186095E000B6FF4C /* FMDatabasePool.m */; };
+		A4C3148B186095E000B6FF4C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C31485186095E000B6FF4C /* FMDatabaseQueue.m */; };
+		A4C3148C186095E000B6FF4C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C31487186095E000B6FF4C /* FMResultSet.m */; };
+		A4C314951860B53600B6FF4C /* diarydata.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C314941860B53600B6FF4C /* diarydata.m */; };
+		A4C314981860C28700B6FF4C /* Dataildiary.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C314971860C28700B6FF4C /* Dataildiary.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A40CEACA185302A500D25FF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A40CEA9C185302A500D25FF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A40CEAA3185302A500D25FF6;
+			remoteInfo = daily;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A40CEAA4185302A500D25FF6 /* daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40CEAA7185302A500D25FF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A40CEAA9185302A500D25FF6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A40CEAAB185302A500D25FF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A40CEAAF185302A500D25FF6 /* daily-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "daily-Info.plist"; sourceTree = "<group>"; };
+		A40CEAB1185302A500D25FF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A40CEAB3185302A500D25FF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A40CEAB5185302A500D25FF6 /* daily-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "daily-Prefix.pch"; sourceTree = "<group>"; };
+		A40CEAB6185302A500D25FF6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A40CEAB7185302A500D25FF6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A40CEABC185302A500D25FF6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A40CEABD185302A500D25FF6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A40CEABF185302A500D25FF6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A40CEAC5185302A500D25FF6 /* dailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A40CEAC6185302A500D25FF6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A40CEACE185302A500D25FF6 /* dailyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "dailyTests-Info.plist"; sourceTree = "<group>"; };
+		A40CEAD0185302A500D25FF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A40CEAD2185302A500D25FF6 /* dailyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = dailyTests.m; sourceTree = "<group>"; };
+		A40CEADC185302D100D25FF6 /* Selectdays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selectdays.h; sourceTree = "<group>"; };
+		A40CEADD185302D100D25FF6 /* Selectdays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Selectdays.m; sourceTree = "<group>"; };
+		A40CEADF1853944E00D25FF6 /* Writedaily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Writedaily.h; sourceTree = "<group>"; };
+		A40CEAE01853944E00D25FF6 /* Writedaily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Writedaily.m; sourceTree = "<group>"; };
+		A470D2F2185EE11000D99A9E /* Readdaily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Readdaily.h; sourceTree = "<group>"; };
+		A470D2F3185EE11000D99A9E /* Readdaily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Readdaily.m; sourceTree = "<group>"; };
+		A4C31468186044D800B6FF4C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		A4C314741860778C00B6FF4C /* Database.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Database.h; sourceTree = "<group>"; };
+		A4C314751860778C00B6FF4C /* Database.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Database.m; sourceTree = "<group>"; };
+		A4C3147E186095E000B6FF4C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = FMDB/FMDatabase.h; sourceTree = "<group>"; };
+		A4C3147F186095E000B6FF4C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = FMDB/FMDatabase.m; sourceTree = "<group>"; };
+		A4C31480186095E000B6FF4C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = FMDB/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		A4C31481186095E000B6FF4C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = FMDB/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		A4C31482186095E000B6FF4C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = FMDB/FMDatabasePool.h; sourceTree = "<group>"; };
+		A4C31483186095E000B6FF4C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = FMDB/FMDatabasePool.m; sourceTree = "<group>"; };
+		A4C31484186095E000B6FF4C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = FMDB/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		A4C31485186095E000B6FF4C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = FMDB/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		A4C31486186095E000B6FF4C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = FMDB/FMResultSet.h; sourceTree = "<group>"; };
+		A4C31487186095E000B6FF4C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = FMDB/FMResultSet.m; sourceTree = "<group>"; };
+		A4C314931860B53600B6FF4C /* diarydata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = diarydata.h; sourceTree = "<group>"; };
+		A4C314941860B53600B6FF4C /* diarydata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diarydata.m; sourceTree = "<group>"; };
+		A4C314961860C28700B6FF4C /* Dataildiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dataildiary.h; sourceTree = "<group>"; };
+		A4C314971860C28700B6FF4C /* Dataildiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dataildiary.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A40CEAA1185302A500D25FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C31469186044D800B6FF4C /* libsqlite3.0.dylib in Frameworks */,
+				A40CEAAA185302A500D25FF6 /* CoreGraphics.framework in Frameworks */,
+				A40CEAAC185302A500D25FF6 /* UIKit.framework in Frameworks */,
+				A40CEAA8185302A500D25FF6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A40CEAC2185302A500D25FF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A40CEAC7185302A500D25FF6 /* XCTest.framework in Frameworks */,
+				A40CEAC9185302A500D25FF6 /* UIKit.framework in Frameworks */,
+				A40CEAC8185302A500D25FF6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A40CEA9B185302A500D25FF6 = {
+			isa = PBXGroup;
+			children = (
+				A40CEAAD185302A500D25FF6 /* daily */,
+				A40CEACC185302A500D25FF6 /* dailyTests */,
+				A40CEAA6185302A500D25FF6 /* Frameworks */,
+				A40CEAA5185302A500D25FF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A40CEAA5185302A500D25FF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A40CEAA4185302A500D25FF6 /* daily.app */,
+				A40CEAC5185302A500D25FF6 /* dailyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A40CEAA6185302A500D25FF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4C31468186044D800B6FF4C /* libsqlite3.0.dylib */,
+				A40CEAA7185302A500D25FF6 /* Foundation.framework */,
+				A40CEAA9185302A500D25FF6 /* CoreGraphics.framework */,
+				A40CEAAB185302A500D25FF6 /* UIKit.framework */,
+				A40CEAC6185302A500D25FF6 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A40CEAAD185302A500D25FF6 /* daily */ = {
+			isa = PBXGroup;
+			children = (
+				A40CEAB6185302A500D25FF6 /* AppDelegate.h */,
+				A40CEAB7185302A500D25FF6 /* AppDelegate.m */,
+				A40CEADF1853944E00D25FF6 /* Writedaily.h */,
+				A40CEAE01853944E00D25FF6 /* Writedaily.m */,
+				A4C314741860778C00B6FF4C /* Database.h */,
+				A4C314751860778C00B6FF4C /* Database.m */,
+				A40CEADC185302D100D25FF6 /* Selectdays.h */,
+				A40CEADD185302D100D25FF6 /* Selectdays.m */,
+				A470D2F2185EE11000D99A9E /* Readdaily.h */,
+				A470D2F3185EE11000D99A9E /* Readdaily.m */,
+				A4C314961860C28700B6FF4C /* Dataildiary.h */,
+				A4C314971860C28700B6FF4C /* Dataildiary.m */,
+				A4C314931860B53600B6FF4C /* diarydata.h */,
+				A4C314941860B53600B6FF4C /* diarydata.m */,
+				A40CEABC185302A500D25FF6 /* ViewController.h */,
+				A40CEABD185302A500D25FF6 /* ViewController.m */,
+				A4C3147E186095E000B6FF4C /* FMDatabase.h */,
+				A4C3147F186095E000B6FF4C /* FMDatabase.m */,
+				A4C31480186095E000B6FF4C /* FMDatabaseAdditions.h */,
+				A4C31481186095E000B6FF4C /* FMDatabaseAdditions.m */,
+				A4C31482186095E000B6FF4C /* FMDatabasePool.h */,
+				A4C31483186095E000B6FF4C /* FMDatabasePool.m */,
+				A4C31484186095E000B6FF4C /* FMDatabaseQueue.h */,
+				A4C31485186095E000B6FF4C /* FMDatabaseQueue.m */,
+				A4C31486186095E000B6FF4C /* FMResultSet.h */,
+				A4C31487186095E000B6FF4C /* FMResultSet.m */,
+				A40CEABF185302A500D25FF6 /* Images.xcassets */,
+				A40CEAAE185302A500D25FF6 /* Supporting Files */,
+			);
+			path = daily;
+			sourceTree = "<group>";
+		};
+		A40CEAAE185302A500D25FF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A40CEAAF185302A500D25FF6 /* daily-Info.plist */,
+				A40CEAB0185302A500D25FF6 /* InfoPlist.strings */,
+				A40CEAB3185302A500D25FF6 /* main.m */,
+				A40CEAB5185302A500D25FF6 /* daily-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A40CEACC185302A500D25FF6 /* dailyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A40CEAD2185302A500D25FF6 /* dailyTests.m */,
+				A40CEACD185302A500D25FF6 /* Supporting Files */,
+			);
+			path = dailyTests;
+			sourceTree = "<group>";
+		};
+		A40CEACD185302A500D25FF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A40CEACE185302A500D25FF6 /* dailyTests-Info.plist */,
+				A40CEACF185302A500D25FF6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A40CEAA3185302A500D25FF6 /* daily */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A40CEAD6185302A500D25FF6 /* Build configuration list for PBXNativeTarget "daily" */;
+			buildPhases = (
+				A40CEAA0185302A500D25FF6 /* Sources */,
+				A40CEAA1185302A500D25FF6 /* Frameworks */,
+				A40CEAA2185302A500D25FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = daily;
+			productName = daily;
+			productReference = A40CEAA4185302A500D25FF6 /* daily.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A40CEAC4185302A500D25FF6 /* dailyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A40CEAD9185302A500D25FF6 /* Build configuration list for PBXNativeTarget "dailyTests" */;
+			buildPhases = (
+				A40CEAC1185302A500D25FF6 /* Sources */,
+				A40CEAC2185302A500D25FF6 /* Frameworks */,
+				A40CEAC3185302A500D25FF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A40CEACB185302A500D25FF6 /* PBXTargetDependency */,
+			);
+			name = dailyTests;
+			productName = dailyTests;
+			productReference = A40CEAC5185302A500D25FF6 /* dailyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A40CEA9C185302A500D25FF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Daisuke YOKOJI";
+				TargetAttributes = {
+					A40CEAC4185302A500D25FF6 = {
+						TestTargetID = A40CEAA3185302A500D25FF6;
+					};
+				};
+			};
+			buildConfigurationList = A40CEA9F185302A500D25FF6 /* Build configuration list for PBXProject "daily" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A40CEA9B185302A500D25FF6;
+			productRefGroup = A40CEAA5185302A500D25FF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A40CEAA3185302A500D25FF6 /* daily */,
+				A40CEAC4185302A500D25FF6 /* dailyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A40CEAA2185302A500D25FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A40CEAC0185302A500D25FF6 /* Images.xcassets in Resources */,
+				A40CEAB2185302A500D25FF6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A40CEAC3185302A500D25FF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A40CEAD1185302A500D25FF6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A40CEAA0185302A500D25FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C314981860C28700B6FF4C /* Dataildiary.m in Sources */,
+				A40CEAE11853944E00D25FF6 /* Writedaily.m in Sources */,
+				A470D2F4185EE11000D99A9E /* Readdaily.m in Sources */,
+				A40CEADE185302D100D25FF6 /* Selectdays.m in Sources */,
+				A40CEABE185302A500D25FF6 /* ViewController.m in Sources */,
+				A40CEAB8185302A500D25FF6 /* AppDelegate.m in Sources */,
+				A4C314951860B53600B6FF4C /* diarydata.m in Sources */,
+				A4C31489186095E000B6FF4C /* FMDatabaseAdditions.m in Sources */,
+				A4C3148C186095E000B6FF4C /* FMResultSet.m in Sources */,
+				A4C314761860778C00B6FF4C /* Database.m in Sources */,
+				A4C3148A186095E000B6FF4C /* FMDatabasePool.m in Sources */,
+				A4C3148B186095E000B6FF4C /* FMDatabaseQueue.m in Sources */,
+				A40CEAB4185302A500D25FF6 /* main.m in Sources */,
+				A4C31488186095E000B6FF4C /* FMDatabase.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A40CEAC1185302A500D25FF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A40CEAD3185302A500D25FF6 /* dailyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A40CEACB185302A500D25FF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A40CEAA3185302A500D25FF6 /* daily */;
+			targetProxy = A40CEACA185302A500D25FF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A40CEAB0185302A500D25FF6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A40CEAB1185302A500D25FF6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A40CEACF185302A500D25FF6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A40CEAD0185302A500D25FF6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A40CEAD4185302A500D25FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A40CEAD5185302A500D25FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A40CEAD7185302A500D25FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "daily/daily-Prefix.pch";
+				INFOPLIST_FILE = "daily/daily-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A40CEAD8185302A500D25FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "daily/daily-Prefix.pch";
+				INFOPLIST_FILE = "daily/daily-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A40CEADA185302A500D25FF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/daily.app/daily";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "daily/daily-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "dailyTests/dailyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		A40CEADB185302A500D25FF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/daily.app/daily";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "daily/daily-Prefix.pch";
+				INFOPLIST_FILE = "dailyTests/dailyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A40CEA9F185302A500D25FF6 /* Build configuration list for PBXProject "daily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A40CEAD4185302A500D25FF6 /* Debug */,
+				A40CEAD5185302A500D25FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A40CEAD6185302A500D25FF6 /* Build configuration list for PBXNativeTarget "daily" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A40CEAD7185302A500D25FF6 /* Debug */,
+				A40CEAD8185302A500D25FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A40CEAD9185302A500D25FF6 /* Build configuration list for PBXNativeTarget "dailyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A40CEADA185302A500D25FF6 /* Debug */,
+				A40CEADB185302A500D25FF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A40CEA9C185302A500D25FF6 /* Project object */;
+}
