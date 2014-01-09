@@ -55,7 +55,7 @@
     }
     
     FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
-    NSString *sel=@"select * from diary;";
+    NSString *sel=@"select * from diary order by day asc;";
     [db open];
     FMResultSet *results = [db executeQuery:sel];
     array = [[NSMutableArray alloc] init];

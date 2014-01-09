@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
-
+#import "Readdaily.h"
 @interface Dataildiary : UIViewController <UITextViewDelegate>{
     UITextView* _textView;
+    NSInteger kTagAlert1;
+    NSInteger kTagAlert2;
 }
 
 @end
