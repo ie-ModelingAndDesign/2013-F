@@ -12,11 +12,13 @@
 {
     NSString *day;
     NSString *diary;
+    NSString *title;
     NSString *photo;
 }
 
 @property(nonatomic,retain)NSString *day;
 @property(nonatomic,retain)NSString *diary;
+@property(nonatomic,retain)NSString *title;
 @property(nonatomic,retain)NSString *photo;
 
 

@@ -15,6 +15,7 @@
 
 @interface Database : UIViewController <UITextViewDelegate>{
     UITextView* _textView;
+    UITextView* _titleView;
 }
 
 @end

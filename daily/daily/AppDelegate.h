@@ -22,6 +22,7 @@
 
 @property (nonatomic,retain)NSString* readday;
 
+@property (nonatomic,retain)NSString* title;
 
 
 @property (strong, nonatomic) UIWindow *window;

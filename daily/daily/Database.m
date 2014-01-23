@@ -39,14 +39,14 @@
     {
         //なければ新規作成
         FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
-        NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,photo BLOB);";
+        NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,title TEXT,photo BLOB);";
         [db open]; //DB開く
         [db executeUpdate:sql]; //SQL実行
         [db close]; //DB閉じる
     }
 
     FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
-    NSString *ins=@"insert into diary (day,kiji) values (?,?);";
+    NSString *ins=@"insert into diary (day,kiji,title) values (?,?,?);";
     NSString *sel=@"select * from diary where day = ?;";
     [db open];
     FMResultSet *olddiary = [db executeQuery:sel,days.str];
@@ -56,23 +56,31 @@
         [db executeUpdate:del,days.str];
     }
     
-    [db executeUpdate:ins,days.str,days.moji];
+    [db executeUpdate:ins,days.str,days.moji,days.title];
     FMResultSet *results = [db executeQuery:sel,days.str];
     
     
     while( [results next] ){
         NSString *testname = [results stringForColumn:@"kiji"];
-        _textView =[self makeTextView:CGRectMake(50, 100, 200, 200)text:@""];
+        NSString *title = [results stringForColumn:@"title"];
+       
+        _titleView =[self makeTextView:CGRectMake(50, 70, 200, 200)text:@""];
+        [_titleView setDelegate:self];
+        [_titleView setText:title];
+        //[self.view addSubview:_titleView];
+        
+        _textView =[self makeTextView:CGRectMake(50, 200, 200, 200)text:@""];
         [_textView setDelegate:self];
         [_textView setText:testname];
-        [self.view addSubview:_textView];
-        NSLog(@"%@", [results stringForColumn:@"kiji"]);
+//        [self.view addSubview:_textView];
+        NSLog(@"%@", title);
     }
 
     
     
-
-    UIButton* button=[self makeButton:CGRectMake(115, 320, 90, 40) text:@"確認"];
+    [self.view addSubview:_titleView];
+    [self.view addSubview:_textView];
+    UIButton* button=[self makeButton:CGRectMake(115, 420, 90, 40) text:@"確認"];
     [self.view addSubview:button];
 
 

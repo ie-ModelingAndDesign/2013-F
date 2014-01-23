@@ -13,6 +13,9 @@
 @synthesize moji;
 @synthesize read;
 @synthesize readday;
+@synthesize title;
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
@@ -36,6 +39,12 @@
     NSArray *items = tabBarController.tabBar.items;
     [[items objectAtIndex:0] setTitle:@"view1"];
     [[items objectAtIndex:1] setTitle:@"view2"];
+   
+   /*[[items objectAtIndex:0] setFinishedSelectedImage:[UIImage imageNamed:@"pencil.jpg"]withFinishedUnselectedImage:[UIImage imageNamed:@"pencil.jpg"]];
+    
+    [[items objectAtIndex:1] setFinishedSelectedImage:[UIImage imageNamed:@"pencil.jpg"]withFinishedUnselectedImage:[UIImage imageNamed:@"pencil.jpg"]];
+    */
+  
     
     // 起動後にはじめに表示するViewControllerに設定します
     self.window.rootViewController = tabBarController;

@@ -17,6 +17,8 @@
 
 @interface Writedaily : UIViewController <UITextViewDelegate>{
     UITextView* _textView;
+    UITextView* _titleView;
+
 }//<UITextFieldDelegate>
 
 @end

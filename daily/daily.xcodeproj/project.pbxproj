@@ -32,6 +32,7 @@
 		A4C3148C186095E000B6FF4C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C31487186095E000B6FF4C /* FMResultSet.m */; };
 		A4C314951860B53600B6FF4C /* diarydata.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C314941860B53600B6FF4C /* diarydata.m */; };
 		A4C314981860C28700B6FF4C /* Dataildiary.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C314971860C28700B6FF4C /* Dataildiary.m */; };
+		A4CC0183188D9D2C0031512B /* pencil.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A4CC0182188D9D2C0031512B /* pencil.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		A4C314941860B53600B6FF4C /* diarydata.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = diarydata.m; sourceTree = "<group>"; };
 		A4C314961860C28700B6FF4C /* Dataildiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dataildiary.h; sourceTree = "<group>"; };
 		A4C314971860C28700B6FF4C /* Dataildiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dataildiary.m; sourceTree = "<group>"; };
+		A4CC0182188D9D2C0031512B /* pencil.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pencil.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 		A40CEAAD185302A500D25FF6 /* daily */ = {
 			isa = PBXGroup;
 			children = (
+				A4CC0182188D9D2C0031512B /* pencil.jpg */,
 				A40CEAB6185302A500D25FF6 /* AppDelegate.h */,
 				A40CEAB7185302A500D25FF6 /* AppDelegate.m */,
 				A40CEADF1853944E00D25FF6 /* Writedaily.h */,
@@ -286,6 +289,7 @@
 			files = (
 				A40CEAC0185302A500D25FF6 /* Images.xcassets in Resources */,
 				A40CEAB2185302A500D25FF6 /* InfoPlist.strings in Resources */,
+				A4CC0183188D9D2C0031512B /* pencil.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

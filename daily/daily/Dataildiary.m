@@ -117,7 +117,7 @@ static const NSInteger secondAlertTag = 2;
         {
             //なければ新規作成
             FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
-            NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,photo BLOB);";
+            NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,tilte TEXT,photo BLOB);";
             [db open]; //DB開く
             [db executeUpdate:sql]; //SQL実行
             [db close]; //DB閉じる

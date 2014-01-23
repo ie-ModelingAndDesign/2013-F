@@ -12,4 +12,5 @@
 @synthesize day;
 @synthesize diary;
 @synthesize photo;
+@synthesize title;
 @end

@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *days = [[UIApplication sharedApplication] delegate];
+   // AppDelegate *days = [[UIApplication sharedApplication] delegate];
     
     //navigationbutton
     UIBarButtonItem* button=[[UIBarButtonItem alloc] initWithTitle:@"更新" style:UIBarButtonItemStyleBordered target:self action:@selector(clickButton:)];
@@ -48,7 +48,7 @@
     {
         //なければ新規作成
         FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
-        NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,photo BLOB);";
+        NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,title,TEXT,photo BLOB);";
         [db open]; //DB開く
         [db executeUpdate:sql]; //SQL実行
         [db close]; //DB閉じる
@@ -63,6 +63,7 @@
      diarydata* data = [[diarydata alloc] init];
          data.diary = [results stringForColumn:@"kiji"];
          data.day = [results stringForColumn:@"day"];
+         data.title = [results stringForColumn:@"title"];
          [array addObject:data];
      }
 
@@ -95,14 +96,15 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
 	
     diarydata *data = [array objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@の日記",data.day];
+    cell.textLabel.text = data.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@の日記",data.day];
+    cell.imageView.image = [UIImage imageNamed:@"pencil.jpg"];
     
-    
-    NSLog(@"%d",indexPath.row);
+    NSLog(@"%ld",indexPath.row);
     return cell;
 }
 
