@@ -37,13 +37,61 @@
     
     // UITabBarControllerのタブのタイトルを設定しています
     NSArray *items = tabBarController.tabBar.items;
-    [[items objectAtIndex:0] setTitle:@"view1"];
-    [[items objectAtIndex:1] setTitle:@"view2"];
-   
-   /*[[items objectAtIndex:0] setFinishedSelectedImage:[UIImage imageNamed:@"pencil.jpg"]withFinishedUnselectedImage:[UIImage imageNamed:@"pencil.jpg"]];
+    [[items objectAtIndex:0] setTitle:@"日記閲覧"];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:0.7 green:0.7 blue:1.0 alpha:0.8], UITextAttributeTextColor,nil] forState:UIControlStateNormal];
     
-    [[items objectAtIndex:1] setFinishedSelectedImage:[UIImage imageNamed:@"pencil.jpg"]withFinishedUnselectedImage:[UIImage imageNamed:@"pencil.jpg"]];
-    */
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor,nil] forState:UIControlStateSelected];
+
+
+    [[items objectAtIndex:1] setTitle:@"日記作成"];
+   
+    UIImage *img_mae = [UIImage imageNamed:@"tab_background@2x.png"];  // リサイズ前UIImage
+    UIImage *img_ato;  // リサイズ後UIImage
+    CGFloat width = 320;  // リサイズ後幅のサイズ
+    CGFloat height = 49;  // リサイズ後高さのサイズ
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width, height));
+    [img_mae drawInRect:CGRectMake(0, 0, width, height)];
+    img_ato = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    [[UITabBar appearance] setBackgroundImage:img_ato];
+
+    UIImage *img_mae1 = [UIImage imageNamed:@"tab_icon1-o@2x.png"];  // リサイズ前UIImage
+    UIImage *img_ato1;  // リサイズ後UIImage
+    UIImage *img_mae2 = [UIImage imageNamed:@"tab_icon1@2x.png"];  // リサイズ前UIImage
+    UIImage *img_ato2;  // リサイズ後UIImage
+    UIImage *img_mae3 = [UIImage imageNamed:@"tab_icon2-o@2x.png"];  // リサイズ前UIImage
+    UIImage *img_ato3;  // リサイズ後UIImage
+    UIImage *img_mae4 = [UIImage imageNamed:@"tab_icon2@2x.png"];  // リサイズ前UIImage
+    UIImage *img_ato4;  // リサイズ後UIImage
+
+    CGFloat width1 = 40;  // リサイズ後幅のサイズ
+    CGFloat height1 = 30;  // リサイズ後高さのサイズ
+    UIGraphicsBeginImageContext(CGSizeMake(width1, height1));
+    [img_mae1 drawInRect:CGRectMake(0, 0, width1, height1)];
+    img_ato1 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width1, height1));
+    [img_mae2 drawInRect:CGRectMake(0, 0, width1, height1)];
+    img_ato2 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width1, height1));
+    [img_mae3 drawInRect:CGRectMake(0, 0, width1, height1)];
+    img_ato3 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    UIGraphicsBeginImageContext(CGSizeMake(width1, height1));
+    [img_mae4 drawInRect:CGRectMake(0, 0, width1, height1)];
+    img_ato4 = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [[items objectAtIndex:0] setFinishedSelectedImage:img_ato4 withFinishedUnselectedImage:img_ato3];
+    
+    [[items objectAtIndex:1] setFinishedSelectedImage:img_ato2 withFinishedUnselectedImage:img_ato1];
+    
   
     
     // 起動後にはじめに表示するViewControllerに設定します
