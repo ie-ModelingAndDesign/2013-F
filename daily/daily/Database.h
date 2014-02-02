@@ -11,9 +11,11 @@
 #import "FMDatabaseAdditions.h"
 #import "FMResultSet.h"
 #import "AppDelegate.h"
+#import "Photo.h"
 
 
-@interface Database : UIViewController <UITextViewDelegate>{
+@interface Database : UIViewController <UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>{
+
     UITextView* _textView;
     UITextView* _titleView;
 }

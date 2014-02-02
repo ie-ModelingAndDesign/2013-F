@@ -81,8 +81,11 @@
     [self.view addSubview:_titleView];
     [self.view addSubview:_textView];
     UIButton* button=[self makeButton:CGRectMake(115, 420, 90, 40) text:@"確認"];
+    button.tag = 1;
+    UIButton* photobutton=[self makeButton:CGRectMake(115, 450, 90, 40) text:@"写真も投稿"];
+    photobutton.tag = 2;
     [self.view addSubview:button];
-
+    [self.view addSubview:photobutton];
 
     [db close];
 	// Do any additional setup after loading the view.
@@ -113,9 +116,91 @@
 
 - (void)clickButton:(UIButton*)sender{
     
+    if(sender.tag == 1){
     //ページ移動
     [self.navigationController popToRootViewControllerAnimated:YES];
+
+    }
+    else if (sender.tag){
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Photo Library",nil];
+        [actionSheet showInView:self.view];
+    }
 }
+
+
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    UIImagePickerControllerSourceType sourceType;
+    switch (buttonIndex) {
+        case 0:
+            sourceType = UIImagePickerControllerSourceTypeCamera;
+            break;
+        case 1:
+            sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            break;
+            
+        default:
+            return;
+    }
+    
+    if (![UIImagePickerController isSourceTypeAvailable:sourceType]) {
+        return;
+    }
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = sourceType;
+    picker.allowsEditing = YES;
+    picker.delegate = self;
+    
+    [self presentModalViewController:picker animated:YES];
+}
+
+//画像選択時に呼び出す
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissModalViewControllerAnimated:YES];
+    // オリジナル画像を取得する
+    UIImage*    originalImage;
+    originalImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    
+    NSData *imageData;
+    // データベースに入れるためにNSDataに変換、保存のときに使う
+    imageData = [[NSData alloc] initWithData:UIImageJPEGRepresentation(originalImage, 0.8)];
+    
+    AppDelegate *days = [[UIApplication sharedApplication] delegate];
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
+    NSString *dir   = [paths objectAtIndex:0];
+    //DBファイルがあるかどうか確認
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if (![fileManager fileExistsAtPath:[dir stringByAppendingPathComponent:@"file.db"]])
+    {
+        //なければ新規作成
+        FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
+        NSString *sql = @"CREATE TABLE diary (id INTEGER PRIMARY KEY AUTOINCREMENT,day TEXT,kiji TEXT,title TEXT,photo BLOB);";
+        [db open]; //DB開く
+        [db executeUpdate:sql]; //SQL実行
+        [db close]; //DB閉じる
+    }
+    //画像をデータベースに格納
+    FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
+    NSString *up=@"update diary set photo = ? where day = ?;";
+    [db open];
+    [db executeUpdate:up,imageData,days.str];
+    
+    UIViewController *next = [[Photo alloc] init];
+    [self.navigationController pushViewController:next animated:NO];
+    
+
+    
+}
+
+//画像の選択がキャンセルされた時に呼ばれる
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [self dismissModalViewControllerAnimated:YES];  // モーダルビューを閉じる
+	// 何かの処理
+}
+
 
 
 - (void)didReceiveMemoryWarning

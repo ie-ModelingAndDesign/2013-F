@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //myTableView.dataSource = self;
     
    // AppDelegate *days = [[UIApplication sharedApplication] delegate];
     
@@ -64,6 +65,7 @@
          data.diary = [results stringForColumn:@"kiji"];
          data.day = [results stringForColumn:@"day"];
          data.title = [results stringForColumn:@"title"];
+         data.photo = [results dataForColumn:@"photo"];
          [array addObject:data];
      }
 
@@ -71,9 +73,10 @@
     
     [db close];
     
-    UITableView *myTableView;
+    //UITableView *myTableView;
 
     myTableView = [[UITableView alloc] initWithFrame:[self.view bounds]];
+//    myTableView = [[UITableView alloc] initWithFrame:CGRectZero];
     [myTableView setDelegate:self];
     [myTableView setDataSource:self];
     [self.view addSubview:myTableView];
@@ -102,7 +105,7 @@
     diarydata *data = [array objectAtIndex:indexPath.row];
     cell.textLabel.text = data.title;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@の日記",data.day];
-    cell.imageView.image = [UIImage imageNamed:@"pencil.jpg"];
+    cell.imageView.image = [[UIImage alloc] initWithData:data.photo];
     
     NSLog(@"%ld",indexPath.row);
     return cell;
@@ -131,8 +134,11 @@
     
     UIViewController *next = [[Readdaily alloc] init];
     [self.navigationController pushViewController:next animated:NO];
-    
+   
+   // [myTableView reloadData]; //テーブルをリロードして更新
+    //[myTableView reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning
 {

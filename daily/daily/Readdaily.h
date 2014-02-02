@@ -13,7 +13,7 @@
 @interface Readdaily : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray* array;
+    UITableView* myTableView;
 }
-
 
 @end
