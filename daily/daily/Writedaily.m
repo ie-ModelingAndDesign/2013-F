@@ -103,6 +103,8 @@
     NSString *sel=@"select * from diary where day = ?;";
     [db open];
     
+    
+    
     FMResultSet *results = [db executeQuery:sel,days.str];
     if([results next]) {
         //while( [results next] ){

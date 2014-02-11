@@ -18,13 +18,18 @@
 
 @property (nonatomic,retain)NSString* moji;
 
+//選択した閲覧日
 @property (nonatomic,retain)NSString* read;
+
 
 @property (nonatomic,retain)NSString* readday;
 
 @property (nonatomic,retain)NSString* title;
 
+@property (nonatomic,retain)NSData* photo;
+
 
 @property (strong, nonatomic) UIWindow *window;
+
 
 @end

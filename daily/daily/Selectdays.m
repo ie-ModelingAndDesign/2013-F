@@ -58,16 +58,23 @@
     
     // 分の刻みを10分おきにする
    // datePicker.minuteInterval = 10;
+   
+    
     
     // 日付ピッカーの値が変更されたときに呼ばれるメソッドを設定
     [datePicker addTarget:self
                    action:@selector(hoge:)
          forControlEvents:UIControlEventValueChanged];
     
+
+   
+    
     // UIDatePickerのインスタンスをビューに追加
     [self.view addSubview:datePicker];
     
     UIButton* button=[self makeButton:CGRectMake(115, 220, 90, 40) text:@"日記を作成"];
+  
+
     [self.view addSubview:button];
 }
 

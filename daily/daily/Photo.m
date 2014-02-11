@@ -88,8 +88,15 @@
 - (void)clickButton:(UIButton*)sender{
     
 
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    if(self.tabBarController.selectedIndex == 0){
+        UIViewController *next = [[Readdaily alloc] init];
+        NSArray *new =[NSArray arrayWithObjects:next, nil];
+        [self.navigationController setViewControllers:new];
         
+    }
+    else{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 
 }
 

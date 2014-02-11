@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     //myTableView.dataSource = self;
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
    // AppDelegate *days = [[UIApplication sharedApplication] delegate];
     
@@ -66,6 +67,7 @@
          data.day = [results stringForColumn:@"day"];
          data.title = [results stringForColumn:@"title"];
          data.photo = [results dataForColumn:@"photo"];
+         appDelegate.str = [results stringForColumn:@"day"];
          [array addObject:data];
      }
 
@@ -118,10 +120,16 @@
 
     diarydata *data = [array objectAtIndex:indexPath.row];
     
+    days.str = data.day;
     days.read = data.diary;
     days.readday = data.day;
+    days.title = data.title;
+    days.photo = data.photo;
     
     NSLog(@"%@",days.read);
+    
+    UIBarButtonItem *back_button = [[UIBarButtonItem alloc] initWithTitle:@"日付" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = back_button;
     
     UIViewController *next = [[Dataildiary alloc] init];
     [self.navigationController pushViewController:next animated:NO];
@@ -131,12 +139,24 @@
 }
 
 - (void)clickButton:(UIButton*)sender{
+
     
+    NSLog(@"%@",self.navigationController.viewControllers);
+
+    //[self.navigationController].keyWindow.rootViewController = next;
+//    [alert addButtonWithTitle:@"はい"];
+    //[self.navigationController initWithRootViewController:next];
     UIViewController *next = [[Readdaily alloc] init];
-    [self.navigationController pushViewController:next animated:NO];
-   
+    NSArray *new =[NSArray arrayWithObjects:next, nil];
+    [self.navigationController setViewControllers:new];
+//    [self.navigationController pushViewController:next animated:NO];
+//    self.navigationController.viewControllers = NULL;
    // [myTableView reloadData]; //テーブルをリロードして更新
     //[myTableView reloadData];
+    
+
+
+  
 }
 
 

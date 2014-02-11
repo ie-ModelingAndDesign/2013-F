@@ -14,6 +14,7 @@
 @synthesize read;
 @synthesize readday;
 @synthesize title;
+@synthesize photo;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -54,8 +55,21 @@
     [img_mae drawInRect:CGRectMake(0, 0, width, height)];
     img_ato = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    
+    UIImage *img_maetab = [UIImage imageNamed:@"tab_selection_indicator@2x.png"];  // リサイズ前UIImage
+    UIImage *img_atotab;  // リサイズ後UIImage
+    CGFloat widthtab = 160;  // リサイズ後幅のサイズ
+    CGFloat heighttab = 49;  // リサイズ後高さのサイズ
+    
+    UIGraphicsBeginImageContext(CGSizeMake(widthtab, heighttab));
+    [img_maetab drawInRect:CGRectMake(0, 0, widthtab, heighttab)];
+    img_atotab = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
 
     [[UITabBar appearance] setBackgroundImage:img_ato];
+    [[UITabBar appearance] setSelectionIndicatorImage:img_atotab];
+
 
     UIImage *img_mae1 = [UIImage imageNamed:@"tab_icon1-o@2x.png"];  // リサイズ前UIImage
     UIImage *img_ato1;  // リサイズ後UIImage
@@ -104,7 +118,9 @@
 }
     
 
-							
+
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

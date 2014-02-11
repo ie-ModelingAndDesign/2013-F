@@ -32,6 +32,7 @@
     UIButton* button=[self makeButton:CGRectMake(115, 320, 90, 40) text:@"一番最初"];
     [self.view addSubview:button];
     
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 

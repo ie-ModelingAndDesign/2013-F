@@ -18,6 +18,8 @@
 
     UITextView* _textView;
     UITextView* _titleView;
+    UITextView* _textlabel;
+    UITextView* _titlelabel;
 }
 
 @end

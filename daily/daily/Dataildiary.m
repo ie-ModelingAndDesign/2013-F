@@ -34,11 +34,11 @@ static const NSInteger secondAlertTag = 2;
     
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-  
+  //self.view.backgroundColor = [UIColor blueColor];
     
    
     
-    UIBarButtonItem* del=[[UIBarButtonItem alloc] initWithTitle:@"削除" style:UIBarButtonItemStyleBordered target:self action:@selector(clickButton:)];
+    UIBarButtonItem* del=[[UIBarButtonItem alloc] initWithTitle:@"削除/編集" style:UIBarButtonItemStyleBordered target:self action:@selector(clickButton:)];
     self.navigationItem.rightBarButtonItem=del;
     
     
@@ -50,12 +50,41 @@ static const NSInteger secondAlertTag = 2;
     //ナビゲーションタイトルを付ける
     self.navigationItem.title = appDelegate.readday;
     
-    //テキストビューの作成
-    _textView =[self makeTextView:CGRectMake(50, 100, 200, 200)text:@""];
+    
+    _titlelabel =[self makeTextView:CGRectMake(50, 70, 200, 25)text:@""];
+    [_titlelabel setDelegate:self];
+    [_titlelabel setText:@"タイトル:"];
+
+    
+    _titleView =[self makeTextView:CGRectMake(50, 30, 200, 200)text:@""];
+    [_titleView setText:appDelegate.title];
+    [_titleView setDelegate:self];
+    [self.view addSubview:_titleView];
+
+    
+    _textlabel =[self makeTextView:CGRectMake(50, 130, 200, 25)text:@""];
+    [_textlabel setDelegate:self];
+    [_textlabel setText:@"本文:"];
+
+    
+    _textView =[self makeTextView:CGRectMake(50, 150, 200, 150)text:@""];
     [_textView setText:appDelegate.read];
     [_textView setDelegate:self];
     [self.view addSubview:_textView];
 
+    
+    NSData *imagedata = appDelegate.photo;
+    UIImage *image =  [[UIImage alloc] initWithData:imagedata];
+    UIImageView *iv = [[UIImageView alloc] initWithImage:image];
+    
+    CGRect rect = CGRectMake(50,300,self.view.frame.size.width-100, self.view.frame.size.height-360);
+    iv.frame = rect;
+    
+    [self.view addSubview:iv];
+    
+    
+    [self.view addSubview:_titlelabel];
+    [self.view addSubview:_textlabel];
     
 }
 
@@ -74,7 +103,7 @@ static const NSInteger secondAlertTag = 2;
 
 - (void)clickButton:(UIButton*)sender{
     
-   [self showAlert:@"" text:[NSString stringWithFormat:@"削除しますか？"]];
+   [self showAlert:@"" text:[NSString stringWithFormat:@"削除/編集しますか？"]];
     
 }
 
@@ -84,8 +113,9 @@ static const NSInteger secondAlertTag = 2;
     alert.title = title;
     alert.message = text;
     alert.tag= firstAlertTag;
-    [alert addButtonWithTitle:@"いいえ"];
-    [alert addButtonWithTitle:@"はい"];
+    [alert addButtonWithTitle:@"編集"];
+    [alert addButtonWithTitle:@"削除"];
+    [alert addButtonWithTitle:@"キャンセル"];
     [alert show];
 }
 
@@ -132,8 +162,12 @@ static const NSInteger secondAlertTag = 2;
 
          [self showAlertTop:@"" text:[NSString stringWithFormat:@"削除しました"]];
         }
- 
-    }
+            else if (buttonIndex == 0){
+                UIViewController *next = [[Writedaily alloc] init];
+                [self.navigationController pushViewController:next animated:NO];
+            
+            }
+        }
     
     else
     {

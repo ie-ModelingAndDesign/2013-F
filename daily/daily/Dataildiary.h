@@ -11,6 +11,9 @@
 #import "Readdaily.h"
 @interface Dataildiary : UIViewController <UITextViewDelegate>{
     UITextView* _textView;
+    UITextView* _titleView;
+    UITextView* _textlabel;
+    UITextView* _titlelabel;
     NSInteger kTagAlert1;
     NSInteger kTagAlert2;
 }

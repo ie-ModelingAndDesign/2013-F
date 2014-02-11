@@ -20,6 +20,8 @@
     if (self) {
         // Custom initialization
         [self.navigationItem setHidesBackButton:YES];
+        self.navigationItem.title = @"日記を投稿しました！";
+
     }
     return self;
 }
@@ -27,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   // self.view.backgroundColor = [UIColor blueColor];
 
     
     AppDelegate *days = [[UIApplication sharedApplication] delegate];
@@ -63,7 +66,9 @@
     while( [results next] ){
         NSString *testname = [results stringForColumn:@"kiji"];
         NSString *title = [results stringForColumn:@"title"];
-       
+        
+     
+        
         _titleView =[self makeTextView:CGRectMake(50, 70, 200, 200)text:@""];
         [_titleView setDelegate:self];
         [_titleView setText:title];
@@ -75,11 +80,22 @@
 //        [self.view addSubview:_textView];
         NSLog(@"%@", title);
     }
+    
+    _titlelabel =[self makeTextView:CGRectMake(50, 110, 200, 25)text:@""];
+    [_titlelabel setDelegate:self];
+    [_titlelabel setText:@"タイトル:"];
+  
+    _textlabel =[self makeTextView:CGRectMake(50, 180, 200, 25)text:@""];
+    [_textlabel setDelegate:self];
+    [_textlabel setText:@"本文:"];
+    
+  //  [self.view addSubview:_titlelabel];
 
-    
-    
     [self.view addSubview:_titleView];
     [self.view addSubview:_textView];
+    [self.view addSubview:_titlelabel];
+    [self.view addSubview:_textlabel];
+    
     UIButton* button=[self makeButton:CGRectMake(115, 420, 90, 40) text:@"確認"];
     button.tag = 1;
     UIButton* photobutton=[self makeButton:CGRectMake(115, 450, 90, 40) text:@"写真も投稿"];
@@ -118,8 +134,15 @@
     
     if(sender.tag == 1){
     //ページ移動
+        if(self.tabBarController.selectedIndex == 0){
+            UIViewController *next = [[Readdaily alloc] init];
+            NSArray *new =[NSArray arrayWithObjects:next, nil];
+            [self.navigationController setViewControllers:new];
+            
+        }
+        else{
     [self.navigationController popToRootViewControllerAnimated:YES];
-
+        }
     }
     else if (sender.tag){
         UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Photo Library",nil];
