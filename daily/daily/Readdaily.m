@@ -120,7 +120,7 @@
 
     diarydata *data = [array objectAtIndex:indexPath.row];
     
-    days.str = data.day;
+  //  days.str = data.day;
     days.read = data.diary;
     days.readday = data.day;
     days.title = data.title;

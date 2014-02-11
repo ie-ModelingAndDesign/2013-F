@@ -33,9 +33,20 @@
 {
     [super viewDidLoad];
     AppDelegate* days = [[UIApplication sharedApplication] delegate];
+    
+    if (self.tabBarController.selectedIndex == 0) {
+        NSLog(@"00000");
+        day = days.readday;
+        
+    }
+    
+    else if (self.tabBarController.selectedIndex ==1){
+        NSLog(@"111111");
+        day = days.str;
+    }
 
     UILabel *label =[[UILabel alloc] init];
-    [label setText:[NSString stringWithFormat:@"%@の日記",days.str]];
+    [label setText:[NSString stringWithFormat:@"%@の日記",day]];
     label.frame = CGRectMake(50, 70, 200,25);
     [self.view addSubview:label];
     
@@ -53,7 +64,7 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     
     //ナビゲーションタイトルを付ける
-    self.navigationItem.title = days.str;
+    self.navigationItem.title = day;
     //ナビゲーションボタン
     UIBarButtonItem* button=[[UIBarButtonItem alloc] initWithTitle:@"投稿" style:UIBarButtonItemStyleBordered target:self action:@selector(clickButton:)];
     self.navigationItem.rightBarButtonItem=button;
@@ -65,6 +76,7 @@
     _titleView =[self makeTextView:CGRectMake(50, 120, 200, 30)text:@""];
     [_titleView setDelegate:self];
     [_titleView setReturnKeyType:UIReturnKeyDone];
+    //_titleView.backgroundColor =  [UIColor groupTableViewBackgroundColor	];
     _titleView.tag = 1;
     
    //viewの作成
@@ -82,6 +94,7 @@
     //テキストビューの作成
     _textView =[self makeTextView:CGRectMake(50, 200, 200, 200)text:@""];
     [_textView setDelegate:self];
+    //_textView.backgroundColor =  [UIColor groupTableViewBackgroundColor	];
     _textView.tag = 2;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
@@ -105,7 +118,7 @@
     
     
     
-    FMResultSet *results = [db executeQuery:sel,days.str];
+    FMResultSet *results = [db executeQuery:sel,day];
     if([results next]) {
         //while( [results next] ){
         NSString *kiji = [results stringForColumn:@"kiji"];
@@ -206,7 +219,7 @@
         days.moji = _textView.text;
         days.title = _titleView.text;
         NSLog(@"%@",days.moji);
-        [self showAlert:@"" text:[NSString stringWithFormat:@"%@の日記を投稿しますか？",days.str]];
+        [self showAlert:@"" text:[NSString stringWithFormat:@"%@の日記を投稿しますか？",day]];
         }
     }
 

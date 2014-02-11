@@ -18,7 +18,7 @@
 @interface Writedaily : UIViewController <UITextViewDelegate>{
     UITextView* _textView;
     UITextView* _titleView;
-
+    NSString* day;
 }//<UITextFieldDelegate>
 
 @end

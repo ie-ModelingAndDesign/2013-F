@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 @interface Photo : UIViewController
+{
+    NSString* day;
+}
 
 @end

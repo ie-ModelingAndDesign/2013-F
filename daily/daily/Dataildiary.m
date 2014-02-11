@@ -51,7 +51,7 @@ static const NSInteger secondAlertTag = 2;
     self.navigationItem.title = appDelegate.readday;
     
     
-    _titlelabel =[self makeTextView:CGRectMake(50, 70, 200, 25)text:@""];
+    _titlelabel =[self makeTextView:CGRectMake(50, 65, 200, 30)text:@""];
     [_titlelabel setDelegate:self];
     [_titlelabel setText:@"タイトル:"];
 
@@ -59,6 +59,8 @@ static const NSInteger secondAlertTag = 2;
     _titleView =[self makeTextView:CGRectMake(50, 30, 200, 200)text:@""];
     [_titleView setText:appDelegate.title];
     [_titleView setDelegate:self];
+//    _titleView.backgroundColor =  [UIColor groupTableViewBackgroundColor];
+    [_titleView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     [self.view addSubview:_titleView];
 
     
@@ -70,6 +72,8 @@ static const NSInteger secondAlertTag = 2;
     _textView =[self makeTextView:CGRectMake(50, 150, 200, 150)text:@""];
     [_textView setText:appDelegate.read];
     [_textView setDelegate:self];
+    _textView.backgroundColor =  [UIColor groupTableViewBackgroundColor	];
+
     [self.view addSubview:_textView];
 
     
@@ -77,7 +81,7 @@ static const NSInteger secondAlertTag = 2;
     UIImage *image =  [[UIImage alloc] initWithData:imagedata];
     UIImageView *iv = [[UIImageView alloc] initWithImage:image];
     
-    CGRect rect = CGRectMake(50,300,self.view.frame.size.width-100, self.view.frame.size.height-360);
+    CGRect rect = CGRectMake(50,308,self.view.frame.size.width-100, self.view.frame.size.height-360);
     iv.frame = rect;
     
     [self.view addSubview:iv];
@@ -85,7 +89,7 @@ static const NSInteger secondAlertTag = 2;
     
     [self.view addSubview:_titlelabel];
     [self.view addSubview:_textlabel];
-    
+   
 }
 
 - (UITextView*)makeTextView:(CGRect)rect text:(NSString*)text{

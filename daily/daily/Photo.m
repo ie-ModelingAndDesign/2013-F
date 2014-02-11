@@ -33,6 +33,18 @@
 	// Do any additional setup after loading the view.
     AppDelegate *days = [[UIApplication sharedApplication] delegate];
 
+    
+    if (self.tabBarController.selectedIndex == 0) {
+        NSLog(@"00000");
+        day = days.readday;
+        
+    }
+    
+    else if (self.tabBarController.selectedIndex ==1){
+        NSLog(@"111111");
+        day = days.str;
+    }
+    
 
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
     NSString *dir   = [paths objectAtIndex:0];
@@ -51,7 +63,7 @@
     FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
     NSString *sel=@"select photo from diary where day = ?;";
      [db open];
-    FMResultSet *results = [db executeQuery:sel,days.str];
+    FMResultSet *results = [db executeQuery:sel,day];
     
     
     while( [results next] ){

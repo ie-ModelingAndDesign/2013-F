@@ -31,8 +31,22 @@
     [super viewDidLoad];
    // self.view.backgroundColor = [UIColor blueColor];
 
-    
     AppDelegate *days = [[UIApplication sharedApplication] delegate];
+    
+    if (self.tabBarController.selectedIndex == 0) {
+        NSLog(@"00000");
+        day = days.readday;
+        
+    }
+    
+    else if (self.tabBarController.selectedIndex ==1){
+        NSLog(@"111111");
+        day = days.str;
+    }
+
+
+    
+    
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
     NSString *dir   = [paths objectAtIndex:0];
@@ -52,15 +66,15 @@
     NSString *ins=@"insert into diary (day,kiji,title) values (?,?,?);";
     NSString *sel=@"select * from diary where day = ?;";
     [db open];
-    FMResultSet *olddiary = [db executeQuery:sel,days.str];
+    FMResultSet *olddiary = [db executeQuery:sel,day];
     
     if([olddiary next]) {
         NSString* del = @"DELETE FROM diary WHERE day = ?;";
-        [db executeUpdate:del,days.str];
+        [db executeUpdate:del,day];
     }
     
-    [db executeUpdate:ins,days.str,days.moji,days.title];
-    FMResultSet *results = [db executeQuery:sel,days.str];
+    [db executeUpdate:ins,day,days.moji,days.title];
+    FMResultSet *results = [db executeQuery:sel,day];
     
     
     while( [results next] ){
@@ -69,23 +83,25 @@
         
      
         
-        _titleView =[self makeTextView:CGRectMake(50, 70, 200, 200)text:@""];
+        _titleView =[self makeTextView:CGRectMake(50, 30, 200, 200)text:@""];
         [_titleView setDelegate:self];
         [_titleView setText:title];
+        [_titleView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
         //[self.view addSubview:_titleView];
         
-        _textView =[self makeTextView:CGRectMake(50, 200, 200, 200)text:@""];
+        _textView =[self makeTextView:CGRectMake(50, 150, 200, 200)text:@""];
         [_textView setDelegate:self];
         [_textView setText:testname];
+        [_textView setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
 //        [self.view addSubview:_textView];
         NSLog(@"%@", title);
     }
     
-    _titlelabel =[self makeTextView:CGRectMake(50, 110, 200, 25)text:@""];
+    _titlelabel =[self makeTextView:CGRectMake(50, 65, 200, 30)text:@""];
     [_titlelabel setDelegate:self];
     [_titlelabel setText:@"タイトル:"];
   
-    _textlabel =[self makeTextView:CGRectMake(50, 180, 200, 25)text:@""];
+    _textlabel =[self makeTextView:CGRectMake(50, 130, 200, 25)text:@""];
     [_textlabel setDelegate:self];
     [_textlabel setText:@"本文:"];
     
@@ -209,7 +225,7 @@
     FMDatabase *db= [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:@"file.db"]];
     NSString *up=@"update diary set photo = ? where day = ?;";
     [db open];
-    [db executeUpdate:up,imageData,days.str];
+    [db executeUpdate:up,imageData,day];
     
     UIViewController *next = [[Photo alloc] init];
     [self.navigationController pushViewController:next animated:NO];

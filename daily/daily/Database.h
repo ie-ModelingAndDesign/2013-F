@@ -20,6 +20,7 @@
     UITextView* _titleView;
     UITextView* _textlabel;
     UITextView* _titlelabel;
+    NSString* day;
 }
 
 @end
